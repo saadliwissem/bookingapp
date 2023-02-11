@@ -1,7 +1,7 @@
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
-import { SearchContext } from "../../context/SearchContext.js";
+import React, {  useState } from "react";
+//import { SearchContext } from "../../context/SearchContext.js";
 import useFetch from "../../hooks/useFetch.js";
 export const Reserve = ({ setOpen, hotelId }) => {
   const { data/*, loading, error*/ } = useFetch(`hotels/room/${hotelId}`);
