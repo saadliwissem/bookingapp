@@ -4,8 +4,8 @@ import React, { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext.js";
 import useFetch from "../../hooks/useFetch.js";
 export const Reserve = ({ setOpen, hotelId }) => {
-  const { data, loading, error } = useFetch(`hotels/room/${hotelId}`);
-  const { dates } = useContext(SearchContext);
+  const { data/*, loading, error*/ } = useFetch(`hotels/room/${hotelId}`);
+  //const { dates } = useContext(SearchContext);
   //console.log(data);
   
   

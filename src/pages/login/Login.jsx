@@ -60,7 +60,7 @@ const navigate = useNavigate()
           </span>}
           
            <p className="link">
-             <a href="#">Forgot password ?</a> Or<a href="#">Sign Up</a>
+             <a >Forgot password ?</a> Or<a >Sign Up</a>
            </p>
           
 

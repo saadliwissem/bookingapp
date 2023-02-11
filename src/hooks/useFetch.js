@@ -8,11 +8,12 @@ const useFetch = (url) => {
     baseURL: 'http://localhost:3000'
   });
   useEffect(() => {
+    const uri = url;
     const fetchData = async () => {
       setLoading(true);
 
       try {
-        const res = await instance.get(url);
+        const res = await instance.get(uri);
         setData(res.data);
       } catch (error) {
         setError(error);
@@ -20,13 +21,14 @@ const useFetch = (url) => {
       setLoading(false);
     };
     fetchData();
-  }, [url]);
+  },[uri]);
 
   const RefetchData = async () => {
     setLoading(true);
+    const uri = url;
 
     try {
-      const res = await instance.get(url);
+      const res = await instance.get(uri);
       setData(res.data);
     } catch (error) {
       setError(error);

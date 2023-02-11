@@ -26,7 +26,7 @@ export const Hotel = () => {
 
     const cu = window.location.href;
     setUrl(cu)
-  })
+  },[])
   
   
   const id = url.split("/")[5]
