@@ -4,13 +4,15 @@ const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  const instance = axios.create({
+    baseURL: 'http://localhost:3000'
+  });
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
       try {
-        const res = await axios.get(url);
+        const res = await instance.get(url);
         setData(res.data);
       } catch (error) {
         setError(error);
@@ -24,7 +26,7 @@ const useFetch = (url) => {
     setLoading(true);
 
     try {
-      const res = await axios.get(url);
+      const res = await instance.get(url);
       setData(res.data);
     } catch (error) {
       setError(error);

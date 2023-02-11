@@ -13,6 +13,9 @@ import { Footer } from "../components/foooter/Footer";
 import { useState,useEffect, useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { SearchContext } from "../context/SearchContext";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { Reserve } from "../components/reserve/Reserve";
 
 
 export const Hotel = () => {
@@ -56,7 +59,18 @@ const days = daydiff(dates[0].endDate ,dates[0].startDate)
 
     setSlideNumber(newSlideNumber);
   };
-
+  const {user} = useContext(AuthContext)
+  const navigate= useNavigate()
+  const [openModal,setOpenModal]= useState(false)
+  const hundleClick=()=>{
+     if(user){
+       setOpenModal(true)
+     }
+     else{
+       navigate("/login")
+     }
+    
+  }
   return (
     <div> 
       <Navbar />
@@ -92,7 +106,7 @@ const days = daydiff(dates[0].endDate ,dates[0].startDate)
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button onClick={hundleClick} className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name} </h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -132,7 +146,7 @@ const days = daydiff(dates[0].endDate ,dates[0].startDate)
                 <h2>
                   <b>${days*data.cheapestPrice*options.room}</b> ({days}{""})
                 </h2>
-                <button>Reserve or Book Now!</button>
+                <button onClick={hundleClick}>Reserve or Book Now!</button>
               </div>
             </div>
           </div>
@@ -140,6 +154,7 @@ const days = daydiff(dates[0].endDate ,dates[0].startDate)
           <Footer />
         </div>
       )}
+       {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };
