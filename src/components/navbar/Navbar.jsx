@@ -15,7 +15,7 @@ console.log(user)
         </Link>
         {user ?  user.details.username :<div className="navItems">
           <button className="navButton">Register</button>
-           <Link to={uri+"/login"}>
+           <Link to={uri+"login"}>
           
           <button className="navButton">Login</button>
           </Link>
