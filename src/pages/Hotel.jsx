@@ -30,6 +30,7 @@ export const Hotel = () => {
   
   
   const id = url.split("/")[5]
+  console.log(id)
   const { data, loading } = useFetch(`/hotels/find/${id}`);
   
   const {dates ,options}= useContext(SearchContext);

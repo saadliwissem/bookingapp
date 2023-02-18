@@ -1,9 +1,9 @@
 import useFetch from "../../hooks/useFetch.js";
 import "./Featured.css";
 export const Feautured = () => {
-  const uri = "https://main--bespoke-treacle-5ca4d6.netlify.app/"
+  //const uri = "https://main--bespoke-treacle-5ca4d6.netlify.app/"
   const { data, loading } = useFetch(
-    uri+"/hotels/CountByCity?cities=london,madrid,kasserine"
+    "/hotels/CountByCity?cities=london,madrid,kasserine"
   );
   console.log(data)
   return (

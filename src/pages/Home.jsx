@@ -15,7 +15,7 @@ export const Home = () => {
         <Feautured />
         <h1 className="homeTitle">Browse by property type</h1>
         <PropretyList />
-        <h1 className="homeTitle">Homes guests love</h1>
+         <h1 className="homeTitle">Homes guests love</h1>
         <FeaturedProperties />
         <MailList />
         <Footer />
